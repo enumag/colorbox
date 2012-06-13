@@ -50,7 +50,7 @@
 		onComplete: false,
 		onCleanup: false,
 		onClosed: false,
-		overlayClose: true,		
+		overlayClose: true,
 		escKey: true,
 		arrowKey: true,
 		top: false,
@@ -525,10 +525,14 @@
 			$topBorder[0].style.width = $bottomBorder[0].style.width = $content[0].style.width = that.style.width;
 			$content[0].style.height = $leftBorder[0].style.height = $rightBorder[0].style.height = that.style.height;
 		}
+
+		$close.hide();
 		
 		$box.dequeue().animate({width: settings.w + loadedWidth, height: settings.h + loadedHeight, top: top, left: left}, {
 			duration: speed,
 			complete: function () {
+				$close.show();
+
 				modalDimensions(this);
 				
 				active = false;
